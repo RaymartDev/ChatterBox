@@ -4,12 +4,21 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "airbnb",
+    /**
+     * "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
+     */
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
   ],
   overrides: [
     {
@@ -26,12 +35,23 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    tsconfigRootDir: __dirname, // Change to point to the frontend folder
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
+    // tsconfigRootDir: __dirname, // Change to point to the frontend folder
+    // project: ["./tsconfig.json", "./tsconfig.node.json"],
   },
   plugins: ["@typescript-eslint", "react", "prettier"],
   rules: {
     "react/react-in-jsx-scope": 0,
     "react-hooks/exhaustive-deps": 0,
+  },
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: "./tsconfig.json",
+      },
+    },
   },
 };

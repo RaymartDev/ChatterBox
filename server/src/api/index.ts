@@ -1,15 +1,16 @@
-import express from 'express';
+import express, { Response } from "express";
 
-import MessageResponse from '../interfaces/MessageResponse';
-import user from './user';
+import MessageResponse from "../interfaces/MessageResponse";
+import user from "./user";
+
 const router = express.Router();
 
-router.get<{}, MessageResponse>('/', (req, res) => {
+router.get("/", (req, res: Response<MessageResponse>) => {
   res.json({
-    message: 'ChatterBox version 1 API',
+    message: "ChatterBox version 1 API",
   });
 });
 
-router.use('/user', user);
+router.use("/user", user);
 
 export default router;

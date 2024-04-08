@@ -13,6 +13,7 @@
   "include": [
     "./*.js",
     "src/**/*.ts",
-    "test/**/*.ts",
+    "prettierrc.cjs",
   ],
+  "exclude": ["node_modules", "dist", "__tests__", "coverage"]
 }

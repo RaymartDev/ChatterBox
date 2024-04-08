@@ -42,12 +42,16 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": 0,
     "react-hooks/exhaustive-deps": 0,
+    "import/extensions": 0,
   },
   settings: {
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"],
     },
     "import/resolver": {
+      node: {
+        paths: ["src"], // Add additional paths to resolve custom modules
+      },
       typescript: {
         alwaysTryTypes: true,
         project: "./tsconfig.json",

@@ -23,7 +23,8 @@
   "include": [
     ".eslintrc.cjs",
     "src",
-    "vite.config.ts"
+    "vite.config.ts",
+    "prettier.cjs"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
